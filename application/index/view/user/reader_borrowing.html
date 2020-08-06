@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>在借图书</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/readerMain.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/readerBorrowing.css">
+	<script type="text/javascript" src="/static/script/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+	  $(function(){
+	  	 var Lis=$(".menu ul li").eq(3);
+	  	 Lis.css('border-bottom', '7px solid #419EDC');
+	  	 Lis.css('margin-top', '-7px');
+	  	 Lis.css('color', '#419EDC');
+	  	 $(".table tbody tr:odd").css("backgroundColor","#E3F2F5");
+	  })
+	</script>
+</head>
+<body>
+<div class="header">
+	<div class="header">
+		<div class="home_logo"><a href="http://ligong.com"><i class="fa fa-home">首页</i></a></div>
+		<div class="page_title">个人中心</div>
+		<div class="out_page">退出</div>
+	</div>
+</div>
+<div class="book_logo">
+	<img src="/static/images/booklogo.png">
+</div>
+<div class="reader_name">张三</div>
+<div class="menu">
+	<ul>
+		<a href="readerPersonal"><li class="first_li">基本资料</li></a>
+		<a href="readerAlterData"><li class="other_li">修改资料</li></a>
+		<a href="readerAlterPaswd"><li class="other_li">修改密码</li></a>
+		<a href="readerBorrowing"><li class="other_li">在借图书</li></a>
+		<a href="readerBorrowed"><li class="last_li">借阅记录</li></a>
+	</ul>
+	<div class="clear"></div>
+</div>
+<!-- class="content"的div中是个人中心的切换部分 -->
+<div class="content">
+       <div class="book_num">
+       	 <div class="borred">已借: <span>4</span>本</div>
+       	 <div class="borred">剩余可借: <span>6</span>本</div>
+       </div>
+	    <div class="table_div">
+          <table class="table">
+            <thead>
+              <th>序号</th>
+              <th>借阅号</th>
+              <th>图书名</th>
+              <th>应还日期</th>
+            </thead>
+            <tbody>
+              <tr>
+              	<td>1</td>
+                <td>{$data.BorrowID}</td>
+                <td>{$data.Bookname}</td>
+                <td>{$data.ShouldTime}</td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+</div>
+<div class="footer">
+	    <br/>   
+		<p>@Copyright重庆理工大学中山图书馆</p>
+	</div>
+</body>
+</html>

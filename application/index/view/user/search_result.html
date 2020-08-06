@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>搜索结果</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/style/searchResult.css">
+	<link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css">
+	<script type="text/javascript" src="/static/script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        	$(".login").click(function() {
+        		window.open("denglutiaoz");
+        	});
+        	
+        	$(".bor_btn").click(function() {
+        		var num=$(this).find("span").html();
+        		if (num<=0) {
+        			alert("该书被借光了~~");
+        		}
+        		else{
+        			alert("请到图书管理员处借阅~~");
+        		}
+        	});
+        	var btns=$(".bor_btn");
+        	for (var i = 0; i < btns.length; i++) {
+        		var num=$(btns[i]).find("span").html();
+        		if (num==0) {
+                    $(".bor_btn").eq(i).css('backgroundColor', '#BCBCBC');
+        		}
+        		else{
+        			$(".bor_btn").eq(i).css('backgroundColor', '#28B138');
+        		}
+        	};
+        });
+    </script>
+</head>
+<body>
+<div class="search_page">
+	<div class="header">
+		<div class="home"><a href="souyetiaoz"><i class="fa fa-home"></i>首页</a></div>
+		<div class="login">登录</div>
+		<div class="clear"></div>
+	</div>
+	<div class="content">
+		<div class="search">
+			<form method="post" action="searchResult">
+				<input type="text" value="" name="searchdata" onfocus="if (value =='请输入要搜索的图书名称'){value=''}" onblur="if (value=='') {value='请输入要搜索的图书名称'}"/>&nbsp;<span class="text_red"></span>
+			<div class="sch_btn"><input  type="submit" value="搜索"/></div>
+			</form>
+		</div>
+		<div class="result">
+			<div class="book_result">
+				<div class="bk_name">{$data.BookName}</div>
+				<ul>
+					<li>{$data.Author}</li>
+					<li>{$data.Publishcompany}</li>
+				</ul>
+				
+				<div class="bor_btn">
+					<div class="btn_name">借阅</div>
+					<div class="bk_num">在库数量：<span>1</span>本</div>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>
